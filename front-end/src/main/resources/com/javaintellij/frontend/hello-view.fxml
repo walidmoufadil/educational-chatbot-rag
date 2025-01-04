@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.stage.FileChooser?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.javaintellij.frontend.HelloController" stylesheets="@style.css">
+  <!-- Header section -->
+  <top>
+    <HBox alignment="CENTER" styleClass="header">
+      <Label text="Education Chatbot" styleClass="header-label"/>
+    </HBox>
+  </top>
+
+  <!-- Center: message display area -->
+  <center>
+    <VBox spacing="15" styleClass="chat-container">
+      <ScrollPane fx:id="chatScrollPane" fitToWidth="true" styleClass="scroll-pane">
+        <VBox fx:id="chatBox" spacing="12" styleClass="messages-box"/>
+      </ScrollPane>
+    </VBox>
+  </center>
+
+  <!-- Bottom: user input area -->
+  <bottom>
+    <VBox spacing="10">
+      <!-- PDF Upload Section -->
+      <HBox spacing="10" alignment="CENTER_LEFT" styleClass="pdf-upload-section">
+        <Button text="Add PDF" onAction="#handleAddPDF" styleClass="add-pdf-button"/>
+        <Label fx:id="pdfStatusLabel" text="No PDF uploaded" styleClass="pdf-status-label"/>
+      </HBox>
+
+      <!-- Chat Input Section -->
+      <HBox spacing="10" styleClass="input-area">
+        <TextField fx:id="userInput" promptText="Type your question..." HBox.hgrow="ALWAYS" styleClass="input-field"/>
+        <Button text="Send" onAction="#handleSendMessage" styleClass="send-button"/>
+      </HBox>
+    </VBox>
+  </bottom>
+</BorderPane>
